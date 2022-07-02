@@ -1,14 +1,12 @@
 <template>
   <div class="app">
     <TodoList />
-    <Footer />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import TodoList from '../components/TodoList.vue'
-import Footer from '../components/Footer.vue'
 import Router from 'vue-router'
 
 Vue.use(Router)
@@ -16,7 +14,6 @@ Vue.use(Router)
 export default Vue.extend({
   components: {
     TodoList,
-    Footer,
   },
 })
 </script>
@@ -30,8 +27,8 @@ export default Vue.extend({
 }
 .app {
   background-color: #d9eff7;
-  max-height: 100%;
-  padding-top: 8rem;
-  height: 900px;
+  height: 770px;
+
+  padding-top: 5rem;
 }
 </style>

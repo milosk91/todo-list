@@ -45,8 +45,12 @@
     <div class="extra-container">
       <div>
         <label>
-          <el-checkbox :checked="!anyRemaining" @change="checkAllTodos" /> Check
-          All Todos</label
+          <el-checkbox
+            v-model="checked"
+            :checked="!anyRemaining"
+            @change="checkAllTodos"
+          />
+          Check All Todos</label
         >
       </div>
       <div>{{ remaining }} items left</div>
@@ -95,6 +99,7 @@ export default class TodoList extends Vue {
   /* State */
   /* Data */
   beforeEditCache = ''
+  checked = false
   newTodo = ''
   idForTodo = 5
   filter = 'all'
@@ -162,6 +167,7 @@ export default class TodoList extends Vue {
   checkAllTodos() {
     this.todos.forEach((todo: any) => (todo.completed = event.target.checked))
   }
+
   clearCompleted() {
     this.todos = this.todos.filter((todo) => !todo.completed)
   }
@@ -202,6 +208,7 @@ h2 {
   color: #4741a6;
   text-align: center;
   font-weight: 400;
+  margin-bottom: 2rem;
 }
 
 .el-input {
@@ -214,6 +221,9 @@ h2 {
   justify-content: space-between;
   margin-bottom: 1rem;
   margin-top: 1rem;
+  font-size: 1.25rem;
+  color: #4741a6;
+
   animation-duration: 0.5s;
 }
 
@@ -268,6 +278,7 @@ h2 {
 .buttons {
   display: flex;
   align-items: left;
+  padding-bottom: 3rem;
 }
 
 .fade-enter-active,
